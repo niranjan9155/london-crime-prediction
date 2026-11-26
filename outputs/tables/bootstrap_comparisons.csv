@@ -1,7 +1,7 @@
 comparison,metric,mean_diff,ci_low,ci_high,share_above_zero
-XGBoost with neighbours vs own history,pr_auc,0.0017,-0.0002,0.0036,0.96
-XGBoost with neighbours vs own history,f1,0.0027,-0.003,0.0081,0.823
-XGBoost with neighbours vs previous-month rule,pr_auc,0.0352,0.0284,0.0421,1.0
-XGBoost with neighbours vs previous-month rule,f1,0.0401,0.0274,0.0529,1.0
-XGBoost with neighbours vs logistic regression,pr_auc,-0.0016,-0.004,0.0006,0.09
-XGBoost with neighbours vs logistic regression,f1,-0.0046,-0.0103,0.0013,0.059
+XGBoost with neighbours vs own history,pr_auc,0.001662,-0.000162,0.003624,0.96
+XGBoost with neighbours vs own history,f1,0.00267,-0.002974,0.008062,0.823
+XGBoost with neighbours vs previous-month rule,pr_auc,0.035184,0.028367,0.042067,1.0
+XGBoost with neighbours vs previous-month rule,f1,0.040149,0.027417,0.052902,1.0
+XGBoost with neighbours vs logistic regression,pr_auc,-0.001619,-0.004018,0.000645,0.09
+XGBoost with neighbours vs logistic regression,f1,-0.004625,-0.010273,0.001279,0.059

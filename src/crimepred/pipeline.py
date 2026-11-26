@@ -8,7 +8,7 @@ import time
 
 import pandas as pd
 
-from crimepred import config, data, evaluate, explain, features, models, plots, spatial
+from crimepred import config, dashboard_data, data, evaluate, explain, features, models, plots, spatial
 
 NAMES = {
     "rule": "Previous-month rule",
@@ -23,8 +23,9 @@ def log(msg, start=[time.time()]):
 
 
 def save_table(df, name):
+    # Six decimals, so rounding again later for reports still gives the right 3-decimal value.
     path = config.TABLES / name
-    evaluate.round_floats(df).to_csv(path, index=False)
+    evaluate.round_floats(df, digits=6).to_csv(path, index=False)
     return path
 
 
@@ -139,6 +140,9 @@ def main(n_configs=30):
     shap_table = explain.importance_table(expl)
     save_table(shap_table, "shap_importance.csv")
     explain.save_plots(expl, config.FIGURES)
+
+    log("Preparing map file for the dashboard")
+    dashboard_data.build_map_file()
 
     # 6. Short summary for the report
     summary = {
