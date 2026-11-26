@@ -124,7 +124,7 @@ Bootstrap differences (95% interval, `outputs/tables/bootstrap_comparisons.csv`)
 | Comparison | PR-AUC difference | F1 difference |
 |---|---|---|
 | XGBoost with neighbours vs previous-month rule | +0.035 (+0.028 to +0.042) | +0.040 (+0.027 to +0.053) |
-| XGBoost with neighbours vs own history | +0.002 (-0.000 to +0.004) | +0.003 (-0.003 to +0.008) |
+| XGBoost with neighbours vs own history | +0.0017 (-0.0002 to +0.0036) | +0.003 (-0.003 to +0.008) |
 | XGBoost with neighbours vs logistic regression | -0.002 (-0.004 to +0.001) | -0.005 (-0.010 to +0.001) |
 
 What this shows:
