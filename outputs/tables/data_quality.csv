@@ -1,0 +1,13 @@
+item,value
+rows,106219
+columns,29
+LSOAs,4991
+boroughs,33
+crime groups,10
+crime sub-groups,29
+first month,202411
+last month,202610
+missing values,0
+duplicate rows,0
+median crimes per LSOA in last month,10.0
+max crimes per LSOA in last month,725

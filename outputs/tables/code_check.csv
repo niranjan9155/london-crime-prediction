@@ -1,0 +1,5 @@
+check,count
+crime LSOAs,4991
+boundary LSOAs,4991
+crime LSOAs without boundary,0
+boundaries without crime rows,0

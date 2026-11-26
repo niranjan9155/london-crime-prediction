@@ -1,0 +1,17 @@
+feature,mean_abs_shap,label,share
+mean_3m,2.5323,3-month average,0.5396
+rank_pct,0.753,London rank this month,0.1605
+high_count_3m,0.2099,High months (last 3),0.0447
+share_theft,0.1901,Theft share,0.0405
+lag1,0.1828,Crimes last month,0.039
+lag2,0.182,Crimes two months ago,0.0388
+crimes,0.1799,Crimes this month,0.0383
+month_sin,0.0944,Target month (sin),0.0201
+n_neighbours,0.0783,Number of neighbours,0.0167
+nb_mean_3m,0.0642,Neighbours: 3-month avg,0.0137
+change_1m,0.0588,Change since last month,0.0125
+nb_crimes,0.0586,Neighbours: crimes,0.0125
+nb_high_now,0.0478,Neighbours: share high,0.0102
+share_violence,0.0473,Violence share,0.0101
+month_cos,0.0115,Target month (cos),0.0025
+high_now,0.0016,High this month,0.0003

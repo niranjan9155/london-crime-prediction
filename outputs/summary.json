@@ -1,0 +1,177 @@
+{
+  "data": {
+    "lsoas": 4991,
+    "months": [
+      "202411",
+      "202610"
+    ],
+    "neighbour_pairs": 14938,
+    "mean_neighbours": 5.99
+  },
+  "split": [
+    {
+      "part": "train",
+      "first_month_t": "202501",
+      "last_month_t": "202603",
+      "rows": 74865,
+      "high_share": 0.10378681626928471
+    },
+    {
+      "part": "validation",
+      "first_month_t": "202604",
+      "last_month_t": "202606",
+      "rows": 14973,
+      "high_share": 0.1027850130234422
+    },
+    {
+      "part": "test",
+      "first_month_t": "202607",
+      "last_month_t": "202609",
+      "rows": 14973,
+      "high_share": 0.10225071795899285
+    }
+  ],
+  "chosen_settings": {
+    "logistic_C": 1.0,
+    "xgb_own": {
+      "max_depth": 6,
+      "learning_rate": 0.03,
+      "min_child_weight": 20.0,
+      "subsample": 1.0,
+      "colsample_bytree": 1.0,
+      "reg_lambda": 10.0,
+      "rounds": 185
+    },
+    "xgb_full": {
+      "max_depth": 5,
+      "learning_rate": 0.03,
+      "min_child_weight": 10.0,
+      "subsample": 0.7,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 5.0,
+      "rounds": 226
+    }
+  },
+  "test_metrics": [
+    {
+      "model": "Previous-month rule",
+      "precision": 0.758,
+      "recall": 0.7427,
+      "f1": 0.7502,
+      "pr_auc": 0.8485,
+      "roc_auc": 0.971,
+      "tp": 1137,
+      "fp": 363,
+      "fn": 394,
+      "tn": 13079
+    },
+    {
+      "model": "Logistic regression",
+      "precision": 0.8033,
+      "recall": 0.7871,
+      "f1": 0.7951,
+      "pr_auc": 0.8856,
+      "roc_auc": 0.9802,
+      "tp": 1205,
+      "fp": 295,
+      "fn": 326,
+      "tn": 13147
+    },
+    {
+      "model": "XGBoost (own history)",
+      "precision": 0.796,
+      "recall": 0.7799,
+      "f1": 0.7879,
+      "pr_auc": 0.8823,
+      "roc_auc": 0.9796,
+      "tp": 1194,
+      "fp": 306,
+      "fn": 337,
+      "tn": 13136
+    },
+    {
+      "model": "XGBoost (with neighbours)",
+      "precision": 0.7987,
+      "recall": 0.7825,
+      "f1": 0.7905,
+      "pr_auc": 0.8839,
+      "roc_auc": 0.9799,
+      "tp": 1198,
+      "fp": 302,
+      "fn": 333,
+      "tn": 13140
+    }
+  ],
+  "bootstrap": [
+    {
+      "comparison": "XGBoost with neighbours vs own history",
+      "metric": "pr_auc",
+      "mean_diff": 0.0017,
+      "ci_low": -0.0002,
+      "ci_high": 0.0036,
+      "share_above_zero": 0.96
+    },
+    {
+      "comparison": "XGBoost with neighbours vs own history",
+      "metric": "f1",
+      "mean_diff": 0.0027,
+      "ci_low": -0.003,
+      "ci_high": 0.0081,
+      "share_above_zero": 0.823
+    },
+    {
+      "comparison": "XGBoost with neighbours vs previous-month rule",
+      "metric": "pr_auc",
+      "mean_diff": 0.0352,
+      "ci_low": 0.0284,
+      "ci_high": 0.0421,
+      "share_above_zero": 1.0
+    },
+    {
+      "comparison": "XGBoost with neighbours vs previous-month rule",
+      "metric": "f1",
+      "mean_diff": 0.0401,
+      "ci_low": 0.0274,
+      "ci_high": 0.0529,
+      "share_above_zero": 1.0
+    },
+    {
+      "comparison": "XGBoost with neighbours vs logistic regression",
+      "metric": "pr_auc",
+      "mean_diff": -0.0016,
+      "ci_low": -0.004,
+      "ci_high": 0.0006,
+      "share_above_zero": 0.09
+    },
+    {
+      "comparison": "XGBoost with neighbours vs logistic regression",
+      "metric": "f1",
+      "mean_diff": -0.0046,
+      "ci_low": -0.0103,
+      "ci_high": 0.0013,
+      "share_above_zero": 0.059
+    }
+  ],
+  "top_shap_features": [
+    {
+      "feature": "mean_3m",
+      "share": 0.5396
+    },
+    {
+      "feature": "rank_pct",
+      "share": 0.1605
+    },
+    {
+      "feature": "high_count_3m",
+      "share": 0.0447
+    },
+    {
+      "feature": "share_theft",
+      "share": 0.0405
+    },
+    {
+      "feature": "lag1",
+      "share": 0.039
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+part,first_month_t,last_month_t,rows,high_share
+train,202501,202603,74865,0.1038
+validation,202604,202606,14973,0.1028
+test,202607,202609,14973,0.1023
