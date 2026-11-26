@@ -1,0 +1,9 @@
+[server]
+# Skips the first-run email question in the terminal.
+showEmailPrompt = false
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#9B003C"
