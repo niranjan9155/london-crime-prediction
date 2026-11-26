@@ -45,20 +45,39 @@ in the Met Police file. They appear as a blank area on the maps.
 
 The data files are not committed. They are downloaded by the script below.
 
-## How to run
+## Quick start: open the dashboard
 
-Python 3.11 or newer.
+The dashboard shows the results that are already in `outputs/`, so it works without downloading
+data or re-running the models. It needs Python 3.11 or newer.
+
+**Windows:** double-click `run_dashboard.bat`, or run these commands in PowerShell from the project folder:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+.venv\Scripts\python -m pip install -e .
+.venv\Scripts\python -m streamlit run dashboard.py
+```
+
+**macOS / Linux:** `bash run_dashboard.sh`
+
+The first setup takes a few minutes. The dashboard then opens in the browser at
+http://localhost:8501. It has:
+
+- headline scores for the chosen month compared with the previous-month rule
+- an interactive map of predicted risk, or of correct flags, false alarms and missed areas
+- a ranked list of the highest-risk LSOAs, with a borough filter
+- tabs with the model comparison, SHAP feature importance, data checks and the method
+
+## Re-running the full pipeline
 
 ```bash
-python -m venv .venv
-# Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-pip install -e .
-
 python -m crimepred.download    # crime file + boundaries into data/raw (about 85 MB)
 python -m crimepred.pipeline    # full run, about 6 minutes on a laptop
 pytest                          # 25 unit tests
 ```
+
+(On Windows, put `.venv\Scripts\python` in place of `python`, as above.)
 
 All results in `outputs/` are produced by `crimepred.pipeline`. Random seeds are fixed, so a
 second run gives the same numbers.
@@ -154,6 +173,7 @@ What this shows:
 | `outputs/tables/test_predictions.csv` | Score, flag and actual outcome for every LSOA in the test months |
 | `outputs/tables/tuning_*.csv` | Every setting tried during tuning |
 | `outputs/summary.json` | Key numbers in one file |
+| `outputs/dashboard/lsoa_map.geojson` | Simplified LSOA shapes used by the dashboard map |
 
 ## Project structure
 
@@ -168,8 +188,11 @@ src/crimepred/
   evaluate.py    top-10% flags, metrics, bootstrap comparisons
   explain.py     SHAP values and plots
   plots.py       charts and maps
+  dashboard_data.py  small map file for the dashboard
   pipeline.py    runs everything in order
 tests/           unit tests for data, features, neighbours, metrics and models
+dashboard.py     Streamlit dashboard (reads outputs/ only)
+run_dashboard.bat / run_dashboard.sh   one-step setup and launch
 ```
 
 ## Limitations
